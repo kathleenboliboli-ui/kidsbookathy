@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Big Silly Crocodile</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:"Kristen ITC","Comic Sans MS",cursive;
+    display:flex;justify-content:center;align-items:center;
+    height:100vh;overflow:hidden;
+
+    background:linear-gradient(to bottom,#1e7a1e,#28a745,#2ecc71);
+}
+
+/* 🌿 GLASS CARD */
+.container{
+    width:90%;max-width:700px;
+    padding:40px;border-radius:25px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+
+    text-align:center;
+    z-index:2;
+}
+
+/* 🐊 TITLE */
+h1{
+    margin-bottom:15px;
+    color:#ffcc00;
+}
+
+/* 📖 STORY TEXT */
+.story{
+    line-height:1.7;
+    color:white;
+    font-size:16px;
+    text-align:justify;
+}
+
+/* BUTTON */
+.btn{
+    display:block;margin-top:20px;padding:14px;
+
+    background:black;color:white;
+    text-decoration:none;border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#222;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* 💧 RIPPLE */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:ripple 0.6s linear;
+    background:rgba(255,255,255,0.5);
+}
+
+@keyframes ripple{
+    to{transform:scale(4);opacity:0;}
+}
+
+/* 🌿 FLOATING LEAVES */
+.leaf{
+    position:absolute;
+    font-size:20px;
+    color:#a5d6a7;
+    animation:float 10s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌿 LEAVES -->
+<div class="leaf" style="left:10%;">🍃</div>
+<div class="leaf" style="left:30%;animation-duration:12s;">🍃</div>
+<div class="leaf" style="left:60%;animation-duration:8s;">🍃</div>
+<div class="leaf" style="left:80%;animation-duration:14s;">🍃</div>
+
+<div class="container">
+
+<h1>🐊 The Big Silly Crocodile<br>By: Cory Williams</h1>
+
+<div class="story">
+In a mossy corner of the Woods of Abacade, the Big Silly Crocodile woke up with a tummy-rumble that sounded like a bass drum. 
+"I’m not just hungry," he declared, wiggling his wooden tail, "I’m Silly-Hungry!"
+<br><br>
+
+He marched toward the Crunchy-Leaf River, looking for a snack. Suddenly, he spotted something glowing under a bush: a Glittering Grapefruit.
+<br><br>
+
+"Ooh, vitamin-power!" he cheered. With one giant CHOMP, he swallowed it whole. Suddenly, his scales began to sparkle like a disco ball, and he grew two inches taller. 
+"I feel amazing! I could eat a whole mountain!"
+<br><br>
+
+Next, he found a patch of Bouncing Blueberries. Each time he ate one, he didn't just grow; he started to float. Soon, the Silly Crocodile was drifting above the treetops like a green parade balloon.
+<br><br>
+
+"Help! I'm a cloud-croc!" he shouted to his friend Owl.
+<br><br>
+
+"Don't worry," Owl hooted, "you just need some Heavy Honey to bring you back down!"
+<br><br>
+
+The Crocodile spotted a jar of Heavy Honey sitting on a stump. He reached down, grabbed a sticky paw-full, and—THUD—he landed right back on the grass. He was now ten feet tall and very, very wide.
+<br><br>
+
+"I think I’m big enough for today," he giggled, patting his sparkly tummy. "Maybe tomorrow I'll just stick to one Pickle Ice Cream."
+<br><br>
+
+He curled up under a giant fern, dreaming of his next big, silly meal.
+</div>
+
+<a href="page4.html" class="btn">⬅ BACK</a>
+
+</div>
+
+<!-- 💧 RIPPLE SCRIPT -->
+<script>
+document.querySelectorAll(".btn").forEach(btn=>{
+btn.addEventListener("click",e=>{
+const c=document.createElement("span");
+c.classList.add("ripple");
+
+const r=btn.getBoundingClientRect();
+const s=Math.max(r.width,r.height);
+
+c.style.width=c.style.height=s+"px";
+c.style.left=e.clientX-r.left-s/2+"px";
+c.style.top=e.clientY-r.top-s/2+"px";
+
+btn.appendChild(c);
+
+setTimeout(()=>c.remove(),600);
+});
+});
+</script>
+
+</body>
+</html>

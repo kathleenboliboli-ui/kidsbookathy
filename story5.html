@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Monkeys and the Bell</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:"Kristen ITC","Comic Sans MS",cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+    overflow:hidden;
+
+    background:linear-gradient(to bottom,#6a1b9a,#8e44ad,#9b59b6);
+}
+
+/* 🧊 GLASS CARD */
+.container{
+    width:90%;
+    max-width:700px;
+
+    padding:40px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+
+    text-align:center;
+    z-index:2;
+}
+
+/* 🐒 TITLE */
+h1{
+    margin-bottom:15px;
+    color:#ffd700;
+}
+
+/* 📖 STORY */
+.story{
+    line-height:1.8;
+    color:white;
+    font-size:16px;
+    text-align:justify;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    margin-top:25px;
+    padding:14px;
+
+    background:black;
+    color:white;
+
+    text-decoration:none;
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#222;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* 💧 RIPPLE */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:ripple 0.6s linear;
+    background:rgba(255,255,255,0.5);
+}
+
+@keyframes ripple{
+    to{transform:scale(4);opacity:0;}
+}
+
+/* 🔔 FLOATING EFFECT */
+.float{
+    position:absolute;
+    font-size:22px;
+    animation:float 12s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🐒🔔 FLOATING ELEMENTS -->
+<div class="float" style="left:10%;">🐒</div>
+<div class="float" style="left:30%;animation-duration:14s;">🔔</div>
+<div class="float" style="left:50%;animation-duration:10s;">🍌</div>
+<div class="float" style="left:70%;animation-duration:13s;">🐒</div>
+<div class="float" style="left:85%;animation-duration:9s;">🔔</div>
+
+<div class="container">
+
+<h1>🐒 The Monkeys and the Bell<br>by Vishnu Sharma</h1>
+
+<div class="story">
+
+In a bustling city near a dense forest, a thief stole a heavy bronze bell from a temple. As he fled through the woods, he was attacked by a tiger. The thief dropped the bell and ran for his life, leaving it lying in the thick grass.
+<br><br>
+
+A troop of monkeys soon found the shiny object. They began to play with it, ringing it loudly day and night.
+<br><br>
+
+Back in the city, the people heard the constant Clang! Clang! Clang! coming from the dark woods. Because they couldn't see what was making the noise, they became terrified.
+<br><br>
+
+"It must be a Bell-Demon!" they whispered. "A monster that rings a bell before it eats its victims!"
+<br><br>
+
+Everyone was so scared they began to flee the city.
+<br><br>
+
+However, a wise woman named Karamala didn't believe in demons. She crept into the forest to investigate. Hiding behind a tree, she saw the truth: a group of monkeys was simply having a grand time swinging on the bell's rope!
+<br><br>
+
+Karamala went back to the King and said, "I can chase the Bell-Demon away, but I need a mountain of fruit and nuts to perform the ritual."
+<br><br>
+
+The King, desperate to save his city, gave her everything she asked for. Karamala returned to the woods and scattered the delicious food under the trees.
+<br><br>
+
+When the monkeys saw the treats, they dropped the bell and scrambled down to eat.
+
+</div>
+
+<a href="page4.html" class="btn">⬅ BACK</a>
+
+</div>
+
+<!-- 💧 RIPPLE SCRIPT -->
+<script>
+document.querySelectorAll(".btn").forEach(btn=>{
+btn.addEventListener("click",e=>{
+const c=document.createElement("span");
+c.classList.add("ripple");
+
+const r=btn.getBoundingClientRect();
+const s=Math.max(r.width,r.height);
+
+c.style.width=c.style.height=s+"px";
+c.style.left=e.clientX-r.left-s/2+"px";
+c.style.top=e.clientY-r.top-s/2+"px";
+
+btn.appendChild(c);
+
+setTimeout(()=>c.remove(),600);
+});
+});
+</script>
+
+</body>
+</html>

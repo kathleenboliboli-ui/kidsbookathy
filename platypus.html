@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Duck-billed Platypus</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100vh;
+        overflow: hidden;
+
+        /* 🦆 GREEN NATURE BACKGROUND */
+        background: linear-gradient(
+            to bottom,
+            #1e3c2f,
+            #2e8b57,
+            #4caf50
+        );
+    }
+
+    .container {
+        width: 90%;
+        max-width: 650px;
+
+        padding: 40px;
+        border-radius: 25px;
+
+        text-align: center;
+
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+        color: #ffcc00;
+
+        font-family: "Kristen ITC", "Comic Sans MS", cursive;
+    }
+
+    .poem {
+        font-size: 17px;
+        line-height: 1.8;
+        color: white;
+
+        font-family: "Kristen ITC", "Comic Sans MS", cursive;
+    }
+
+    .btn {
+        display: block;
+        margin-top: 25px;
+        padding: 15px;
+
+        background: #006400;
+        color: white;
+
+        text-decoration: none;
+        border-radius: 12px;
+
+        font-weight: bold;
+        font-family: "Kristen ITC", "Comic Sans MS", cursive;
+
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #228B22;
+        transform: scale(1.05);
+    }
+
+    /* 🌿 FLOATING LEAVES EFFECT */
+    .leaf {
+        position: absolute;
+        color: #a5d6a7;
+        font-size: 20px;
+        animation: floatLeaf linear infinite;
+    }
+
+    @keyframes floatLeaf {
+        0% { transform: translateY(100vh); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- 🌿 LEAVES -->
+<div class="leaf" style="left:10%; animation-duration:8s;">🍃</div>
+<div class="leaf" style="left:30%; animation-duration:10s;">🍃</div>
+<div class="leaf" style="left:50%; animation-duration:7s;">🍃</div>
+<div class="leaf" style="left:70%; animation-duration:9s;">🍃</div>
+
+<div class="container">
+
+<h1>🦆 Duck-billed Platypus<br>by Denis Rodger</h1>
+
+<div class="poem">
+If you like odd, then make a fuss<br>
+about the duck-billed platypus.<br>
+This type of beast all live down under.<br>
+His body looks much like a blunder.<br>
+He has no wings and lacks a quack.<br>
+His feet are webbed. He has a knack<br>
+for catching shellfish in his bill<br>
+and swimming back to eat his fill.<br><br>
+
+When he was young, he and his ilk<br>
+were fed on warm, sweet mother's milk.<br>
+Though warm of fur, and short of leg,<br>
+it's true he hatched out of an egg.<br>
+To all but worms, he's hardly ruthless.<br>
+His duck-billed mouth is wide and toothless.<br>
+On land he waddles like a clod.<br>
+This ones' for you, if you like odd.
+</div>
+
+<a href="page3.html" class="btn">⬅ BACK</a>
+
+</div>
+
+</body>
+</html>

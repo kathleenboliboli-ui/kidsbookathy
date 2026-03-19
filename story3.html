@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Enormous Crocodile</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:"Kristen ITC","Comic Sans MS",cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+    overflow:hidden;
+
+    background:linear-gradient(to bottom,#145a32,#1e8449,#27ae60);
+}
+
+/* 🌿 GLASS CARD */
+.container{
+    width:90%;
+    max-width:700px;
+
+    padding:40px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+
+    text-align:center;
+    z-index:2;
+}
+
+/* 🐊 TITLE */
+h1{
+    margin-bottom:15px;
+    color:#ffcc00;
+}
+
+/* 📖 STORY */
+.story{
+    line-height:1.7;
+    color:white;
+    font-size:16px;
+    text-align:justify;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    margin-top:20px;
+    padding:14px;
+
+    background:black;
+    color:white;
+
+    text-decoration:none;
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#222;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* 💧 RIPPLE */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:ripple 0.6s linear;
+    background:rgba(255,255,255,0.5);
+}
+
+@keyframes ripple{
+    to{transform:scale(4);opacity:0;}
+}
+
+/* 🌿 FLOATING LEAVES */
+.leaf{
+    position:absolute;
+    font-size:20px;
+    color:#a5d6a7;
+    animation:float 10s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌿 LEAVES -->
+<div class="leaf" style="left:10%;">🍃</div>
+<div class="leaf" style="left:30%;animation-duration:12s;">🍃</div>
+<div class="leaf" style="left:60%;animation-duration:8s;">🍃</div>
+<div class="leaf" style="left:80%;animation-duration:14s;">🍃</div>
+
+<div class="container">
+
+<h1>🐊 The Enormous Crocodile<br>Author: Roald Dahl</h1>
+
+<div class="story">
+The Enormous Crocodile was a very greedy crocodile who loved eating children. One day, he left the muddy river and went into the jungle to look for something tasty to eat.
+<br><br>
+
+“I want a juicy child for lunch!” he said with a big grin.
+<br><br>
+
+The crocodile thought of many clever tricks to catch children. First, he tried to pretend to be a tree so children would climb on him. But the other animals in the jungle knew his plan.
+<br><br>
+
+The Roly-Poly Bird warned everyone, and Trunky the Elephant spoiled his trick.
+<br><br>
+
+Next, the crocodile disguised himself as a playground ride. He stayed very still and waited for children to come closer. But once again, the jungle animals stopped him before he could catch anyone.
+<br><br>
+
+The Enormous Crocodile became angry because all his sneaky plans failed.
+<br><br>
+
+Finally, the animals decided they had enough of his wicked tricks. The elephant wrapped his trunk around the crocodile and threw him high into the sky.
+<br><br>
+
+The crocodile flew higher and higher until he landed far away—right in the hot sun, where he sizzled like a sausage!
+<br><br>
+
+And that was the end of the Enormous Crocodile and his nasty tricks.
+</div>
+
+<a href="page4.html" class="btn">⬅ BACK</a>
+
+</div>
+
+<!-- 💧 RIPPLE SCRIPT -->
+<script>
+document.querySelectorAll(".btn").forEach(btn=>{
+btn.addEventListener("click",e=>{
+const c=document.createElement("span");
+c.classList.add("ripple");
+
+const r=btn.getBoundingClientRect();
+const s=Math.max(r.width,r.height);
+
+c.style.width=c.style.height=s+"px";
+c.style.left=e.clientX-r.left-s/2+"px";
+c.style.top=e.clientY-r.top-s/2+"px";
+
+btn.appendChild(c);
+
+setTimeout(()=>c.remove(),600);
+});
+});
+</script>
+
+</body>
+</html>

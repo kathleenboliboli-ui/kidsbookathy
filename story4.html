@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Does A Bear Poo in the Woods!?</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:"Kristen ITC","Comic Sans MS",cursive;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+    overflow:hidden;
+
+    background:linear-gradient(to bottom,#5d4037,#8d6e63,#a1887f);
+}
+
+/* 🌲 GLASS CARD */
+.container{
+    width:90%;
+    max-width:700px;
+
+    padding:40px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+
+    text-align:center;
+    z-index:2;
+}
+
+/* 🐻 TITLE */
+h1{
+    margin-bottom:15px;
+    color:#ffd180;
+}
+
+/* 📖 STORY */
+.story{
+    line-height:1.8;
+    color:white;
+    font-size:16px;
+    text-align:justify;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    margin-top:25px;
+    padding:14px;
+
+    background:black;
+    color:white;
+
+    text-decoration:none;
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#222;
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* 💧 RIPPLE */
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    transform:scale(0);
+    animation:ripple 0.6s linear;
+    background:rgba(255,255,255,0.5);
+}
+
+@keyframes ripple{
+    to{transform:scale(4);opacity:0;}
+}
+
+/* 🌲 FLOATING FOREST */
+.tree{
+    position:absolute;
+    font-size:22px;
+    animation:float 12s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(100vh);opacity:0;}
+    50%{opacity:1;}
+    100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌲 FLOATING ELEMENTS -->
+<div class="tree" style="left:10%;">🌲</div>
+<div class="tree" style="left:30%;animation-duration:14s;">🍂</div>
+<div class="tree" style="left:50%;animation-duration:10s;">🐻</div>
+<div class="tree" style="left:70%;animation-duration:13s;">🌲</div>
+<div class="tree" style="left:85%;animation-duration:9s;">🍃</div>
+
+<div class="container">
+
+<h1>🐻 Does A Bear Poo in the Woods!?<br>By Jonny Leighton</h1>
+
+<div class="story">
+
+Deep in the emerald shadows of the forest lived Barry the Bear. Now, Barry was a very large bear with a very large problem: he was incredibly shy.
+<br><br>
+
+One sunny morning, after a breakfast of extra-ripe blackberries, Barry felt a familiar rumble in his tummy. It wasn't a "hungry-rumble"—it was a "gotta-go-right-now-rumble."
+<br><br>
+
+"Oh dear," Barry whispered, his face turning a soft shade of pink. "I need a spot. A private spot. A spot with no squirrels staring at me."
+<br><br>
+
+He waddled to a thicket of ferns. Perfect, he thought. But just as he started his "potty-wiggle," a Moose poked his head through the leaves. "Morning, Barry! Nice day for it!"
+<br><br>
+
+"Not here!" Barry squeaked, scurrying away with his legs crossed.
+<br><br>
+
+He tried a hollow log, but a family of Skunks was already using it for a nap. He tried a quiet cave, but it turned out to be a rehearsal space for a Woodpecker drum circle. Tap-tap-tap-tap!
+<br><br>
+
+"Can a bear get some peace?!" Barry cried, doing a desperate hop-skip-jump.
+<br><br>
+
+Finally, he spotted something strange in a clearing. It was a small wooden shack with a heart-shaped hole in the door. "An outhouse!" Barry gasped. "Luxury!"
+<br><br>
+
+He dashed inside, latched the door, and let out a sigh of pure relief. But just as he settled onto the wooden seat, the entire shack began to shake. VROOOOM!
+<br><br>
+
+A Lumberjack had hooked the outhouse to the back of his truck to move it to a new campsite! As the truck sped down the bumpy forest road, Barry bounced up and down, clutching his tummy.
+<br><br>
+
+The door flew open as the truck hit a pothole. Barry looked out at the passing trees, then at the terrified Lumberjack in the rearview mirror.
+<br><br>
+
+"Well," Barry sighed, waving a shy paw as they zoomed by, "I suppose the answer is: No, sometimes a bear poos in a moving vehicle!"
+
+</div>
+
+<a href="page4.html" class="btn">⬅ BACK</a>
+
+</div>
+
+<!-- 💧 RIPPLE SCRIPT -->
+<script>
+document.querySelectorAll(".btn").forEach(btn=>{
+btn.addEventListener("click",e=>{
+const c=document.createElement("span");
+c.classList.add("ripple");
+
+const r=btn.getBoundingClientRect();
+const s=Math.max(r.width,r.height);
+
+c.style.width=c.style.height=s+"px";
+c.style.left=e.clientX-r.left-s/2+"px";
+c.style.top=e.clientY-r.top-s/2+"px";
+
+btn.appendChild(c);
+
+setTimeout(()=>c.remove(),600);
+});
+});
+</script>
+
+</body>
+</html>
